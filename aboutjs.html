@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScriptの基礎</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <nav class="section-nav">
+        <button onclick="showSection(1)" class="nav-btn" id="nav-1">1</button>
+        <button onclick="showSection(2)" class="nav-btn" id="nav-2">2</button>
+        <button onclick="showSection(3)" class="nav-btn" id="nav-3">3</button>
+        <button onclick="showSection(4)" class="nav-btn" id="nav-4">4</button>
+        <button onclick="showSection(5)" class="nav-btn" id="nav-5">5</button>
+        <button onclick="showSection(6)" class="nav-btn" id="nav-6">6</button>
+        <button onclick="showSection(7)" class="nav-btn" id="nav-7">7</button>
+        <button onclick="showSection(8)" class="nav-btn" id="nav-8">8</button>
+    </nav>
+    </nav>
+    <div id="section1" class="section" style="display: block;">
+        <h1>JavaScriptの基礎</h1>
+        <h2>1. JavaScriptとは</h2>
+        <p>太郎: 先生、<a href="https://ja.wikipedia.org/wiki/JavaScript">JavaScript</a>って何ですか？</p>
+        <p>先生: いい質問ですね、太郎さん。JavaScriptはウェブサイトを動的にするためのプログラミング言語です。例えば、ウェブサイトにボタンをクリックしたときにメッセージを表示させたり、データを取得して画面に表示させることができます。</p>
+        <p>太郎: そうなんですね。でも、どうして<a href="https://ja.wikipedia.org/wiki/HTML">HTML</a>や<a href="https://ja.wikipedia.org/wiki/CSS">CSS</a>だけではダメなんですか？</p>
+        <p>先生: HTMLはページの構造を決めるもので、CSSはその見た目を整える役割があります。しかし、JavaScriptはユーザーがどのようにページとやり取りするかを制御する役割を持っています。たとえば、ボタンを押したときに何かが起こるようにしたいとき、JavaScriptが必要になるんです。</p>
+        <p>太郎: なるほど、確かにボタンに反応させたりするにはプログラミングが必要ですね。JavaScriptはどこで使われているんですか？</p>
+        <p>先生: ほとんどのウェブサイトで使われています。あなたが普段見るソーシャルメディアやオンラインツール、ショッピングサイトはほとんどがJavaScriptで作られた動的な要素を含んでいます。最近では、Node.jsを使えばサーバーサイドでもJavaScriptが使えるようになって、フルスタック開発が可能になっていますよ。</p>
+        <p>太郎: すごい！JavaScriptっていろんなところで使えるんですね。でも、プログラミングを始めるには何が必要なんですか？</p>
+        <p>先生: まずは基本的な文法を学ぶことから始めましょう。そして、簡単なプログラムを作りながら実践することが大切です。最初は小さなプロジェクトから始めて、少しずつ自信をつけていくと良いですよ。<a href="https://prog-8.com/">progate</a>のような学習サイトを使って見るのもいいかもしれませんね。</p>
+        <p>JavaScriptはウェブサイトを動的にするためのプログラミング言語です。例えば、ボタンをクリックしたときにメッセージを表示させたり、データを取得して画面に表示させることができます。</p>
+        <img src="seito.jpg" alt="生徒の画像" width="40%" />
+        <img src="sensei.jpg" alt="先生の画像" width="50%" />
+        <button class="next-button" onclick="showNextSection(1)">次へ</button>
+    </div>
+
+    <div id="section2" class="section" style="display: none;">
+        <h2>2. 基本的な文法</h2>
+        <p>JavaScriptの基本的な文法とデータ型について紹介します。プログラミングを行う際には、データの種類やその扱い方、変数の定義方法を理解することが重要です。しっかりとした基礎を築くことで、後のステップでも効果的に問題を解決し、コードを書いていくことができるようになります。</p>
+        <h3>2.1. 文法とデータ型</h3>
+        <p>プログラミングでは、データを扱う時にそのデータの種類を定義する必要があります。このデータの種類を「データ型」と呼びます。データ型によって、どのような操作ができるか、またどのようにデータがメモリに保存されるかが決まります。</p>
+        <p>JavaScriptには、以下の基本的なデータ型があります：</p>
+        <ul>
+            <li>文字列（String）: テキストを表します。例: "こんにちは", "123"</li>
+            <li>数値（Number）: 整数や小数を扱います。例: 42, 3.14</li>
+            <li>真偽値（Boolean）: true（真）または false（偽）の2つの値のみを取ります。条件分岐などで頻繁に使用されます。</li>
+            <li>未定義（Undefined）: 値が設定されていない変数の状態です。この値は、変数がまだ何も持っていない場合に自動的に割り当てられます。</li>
+            <li>オブジェクト（Object）: キーと値のペアを持つ複雑なデータ構造です。例えば、データの集まりや構造化された情報を扱う場合に使用します。</li>
+        </ul>
+        <h3>2.2. 変数の定義</h3>
+        <p>変数とは、プログラム内でデータを保存するための名前付きの入れ物のようなものです。変数を使うことで、データを扱いやすくし、後から再利用できるようになります。</p>
+        <p>JavaScriptでは、変数を以下の3つの方法で定義できます：</p>
+        <ul>
+            <li><strong>let:</strong> 変数を定義するための新しい方法で、後から値を変更できます。ただし、ブロックスコープを持っています。</li>
+            <li><strong>const:</strong> 定数を定義するための方法で、一度設定した値は変更できません。主に変更しないデータを扱うときに使います。</li>
+            <li><strong>var:</strong> 従来の方法で、関数スコープを持っていますが、現在は使用を避けることが推奨されています。</li>
+        </ul>
+        <p>例えば、変数を使ってユーザーの名前を保存することができます。</p>
+        <pre><code>
+const name = "太郎"; // 'name' という名前の変数に "太郎" を保存
+let age = 15; // 'age' という名前の変数に 15 を保存
+        </code></pre>
+        <button class="next-button" onclick="showNextSection(2)">次へ</button>
+    </div>
+
+    <div id="section3" class="section" style="display: none;">
+        <h2>3. 関数とスコープ</h2>
+        <h3>3.1. 関数の定義</h3>
+        <p>関数は再利用可能なコードのブロックで、特定のタスクを実行するためのものです。以下は、シンプルな関数の定義例です。</p>
+        <pre><code>
+function greet(person) {
+    return "こんにちは、" + person + "さん！";
+}
+        </code></pre>
+        <p>この関数greetは、引数personを受け取り、その人に挨拶するメッセージを返します。</p>
+        <h3>3.2. スコープ</h3>
+        <p>スコープは変数が有効な範囲を指します。JavaScriptには、グローバルスコープ、関数スコープ、ブロックスコープの3種類があります。</p>
+        <ul>
+            <li><strong>グローバルスコープ:</strong> スクリプトのどこからでもアクセスできる変数の範囲です。</li>
+            <li><strong>関数スコープ:</strong> 関数内で定義された変数の範囲で、その関数内からのみアクセス可能です。</li>
+            <li><strong>ブロックスコープ:</strong> letやconstを使って定義された変数に対する範囲で、ブロック（波括弧 {} で囲まれた部分）内でのみ有効です。</li>
+        </ul>
+        <button class="next-button" onclick="showNextSection(3)">次へ</button>
+    </div>
+
+    <div id="section4" class="section" style="display: none;">
+        <h2>4. オブジェクト指向プログラミング</h2>
+        <p>オブジェクト指向プログラミング（OOP）は、プログラミングのスタイルの一つで、データを「オブジェクト」という単位で管理する方法です。オブジェクトは、データ（プロパティ）とそのデータに関連する関数（メソッド）を持つことができます。</p>
+        <h3>4.1. オブジェクトの作成</h3>
+        <p>JavaScriptでは、オブジェクトを作成するのは非常に簡単です。以下のコードは、`person`というオブジェクトを作成しています。</p>
+        <pre><code>
+let person = {
+    name: "太郎",
+    age: 25,
+    greet: function() {
+        return "こんにちは、" + this.name + "さん！";
+    }
+};
+        </code></pre>
+        <p>この例では、`person`オブジェクトは以下の3つの部分を持っています：</p>
+        <ul>
+            <li><strong>プロパティ</strong>: オブジェクトのデータを持つ部分です。ここでは`name`と`age`という2つのプロパティがあります。</li>
+            <li><strong>メソッド</strong>: オブジェクトに関連する動作を定義する関数です。`greet`というメソッドは、`person`オブジェクトの名前を使って挨拶を返す機能があります。</li>
+            <li><strong>thisキーワード</strong>: メソッド内で`this`を使うことで、そのメソッドが属しているオブジェクトを参照することができます。ここでは`this.name`は`person.name`、つまり「太郎」を指します。</li>
+        </ul>
+        <p>次に、`greet`メソッドを呼び出して挨拶を表示させてみましょう:</p>
+
+        <pre><code>
+console.log(person.greet()); // "こんにちは、太郎さん！"と表示
+        </code></pre>
+
+        <p>上のコードを実行すると、`greet`メソッドが呼ばれて挨拶が表示されます。これがオブジェクト指向プログラミングの基本的な使い方です。</p>
+        <button class="next-button" onclick="showNextSection(4)">次へ</button>
+    </div>
+
+
+
+    <div id="section5" class="section" style="display: none;">
+        <h2>5. 非同期処理</h2>
+        <p>非同期処理は、プログラムが時間のかかるタスクを実行している間に他の処理を続行できるようにするための手法です。これにより、特にデータの取得など遅延が発生する可能性のある操作を効率的に扱うことができます。</p>
+
+        <h3>5.1. Promiseの使用</h3>
+        <p>Promiseは、非同期処理の結果を表現するためのオブジェクトです。Promiseはまだ完了していない処理の結果を表し、将来的にその結果が利用可能になることを示します。</p>
+    
+        <p>以下のコードは、データを非同期に取得するための`fetchData`という関数を定義しています。この関数はPromiseを返します。</p>
+    
+        <pre><code>
+    function fetchData() {
+        // 新しいPromiseを返す
+        return new Promise((resolve, reject) => {
+            // 2秒後にデータ取得が完了する模擬処理
+            setTimeout(() => {
+                // データ取得が成功した場合
+                resolve("データ取得完了！");
+            }, 2000);
+        });
+    }
+        </code></pre>
+    
+        <p>この関数の説明は以下の通りです：</p>
+        <ul>
+            <li><strong>Promiseの作成</strong>: `new Promise`を使ってPromiseを作成します。このPromiseは、成功した場合には`resolve`関数を呼び出して、結果を返します。</li>
+            <li><strong>setTimeout</strong>: JavaScriptの`setTimeout`関数は、指定した時間（ここでは2秒）後に指定した処理を実行します。これによって、データ取得の時間を模擬しています。</li>
+            <li><strong>resolve関数</strong>: データ取得が成功した場合に呼ばれ、Promiseが解決（fulfilled）します。この場合、文字列"データ取得完了！"が返されます。</li>
+        </ul>
+    
+        <p>この`fetchData`関数を使うために、Promiseの結果を処理する方法を示します。以下のようにして使用できます：</p>
+    
+        <pre><code>
+    fetchData().then(result => {
+        console.log(result); // "データ取得完了！"と表示
+    }).catch(error => {
+        console.error("エラーが発生しました: ", error);
+    });
+        </code></pre>
+    
+        <p>このコードでは、`then`メソッドを使ってPromiseが成功したときの処理を定義しています。成功した場合には取得した結果が`result`として渡され、`console.log`で表示されます。</p>
+        <p>もしPromiseが失敗した場合は、`catch`メソッドを使ってエラーメッセージを処理することができます。</p>
+        <button class="next-button" onclick="showNextSection(5)">次へ</button>
+    </div>
+
+    <div id="section6" class="section" style="display: none;">
+        <h2>6. DOM操作</h2>
+        <p>DOM（Document Object Model）は、HTMLやXML文書をプログラムから扱うためのインターフェースです。DOMを操作することで、ウェブページの内容や構造を動的に変更することができます。これにより、ユーザーのアクションに応じてページを更新したり、表示内容を変更したりすることが可能になります。</p>
+
+        <h3>6.1. イベント処理</h3>
+        <p>イベント処理とは、ユーザーがページ上で行ったアクション（クリックやキー入力など）に対して、プログラムが反応するようにすることを指します。例えば、ボタンがクリックされたときに何かを行うような処理です。</p>
+
+        <p>以下のコードでは、HTMLから要素を取得する方法を示します。これによって、特定の要素にアクセスして、その内容を変更したり、イベントを追加したりすることができます。</p>
+
+        <pre><code>
+// HTMLから要素を取得
+const titleElement = document.getElementById("title"); // id属性が"title"の要素を取得
+const buttonElement = document.querySelector("#changeTextButton"); // idが"changeTextButton"の要素を取得
+        </code></pre>
+
+        <p>このコードの説明は以下の通りです：</p>
+        <ul>
+            <li><strong>document.getElementById</strong>: このメソッドは、指定したidを持つHTML要素を取得します。ここでは、`id="title"`の要素を取得して`titleElement`という変数に格納しています。</li>
+            <li><strong>document.querySelector</strong>: このメソッドは、CSSセレクタを使って一致する最初の要素を取得します。ここでは、`id="changeTextButton"`の要素を取得しています。</li>
+        </ul>
+
+        <p>次に、ボタンがクリックされたときにタイトルの内容を変更する例を示します：</p>
+
+        <pre><code>
+buttonElement.addEventListener("click", () => {
+    titleElement.innerText = "新しいタイトル！"; // タイトルを変更する
+});
+        </code></pre>
+
+        <p>このコードの説明は以下の通りです：</p>
+        <ul>
+            <li><strong>addEventListener</strong>: このメソッドを使って、指定したイベント（ここでは"click"）に対して関数を追加します。この関数は、イベントが発生したときに実行されます。</li>
+            <li><strong>innerText</strong>: これは要素のテキスト内容を変更するためのプロパティです。ここでは、ボタンがクリックされたときにタイトルのテキストを"新しいタイトル！"に変更しています。</li>
+        </ul>
+
+        <p>以上のように、DOMを操作することで、ユーザーのアクションに応じてページの内容を動的に変更することが可能です。これにより、よりインタラクティブで魅力的なウェブページを作成できます。</p>
+
+        <button class="next-button" onclick="showNextSection(6)">次へ</button>
+    </div>
+
+    <div id="section7" class="section" style="display: none;">
+        <h2>7. モジュールとパッケージ管理</h2>
+        <p>JavaScriptの大規模なプロジェクトでは、コードをモジュール化することが重要です。モジュール化により、コードを再利用しやすく、保守もしやすくなります。また、外部ライブラリやツールを管理するためにパッケージ管理システムが必要です。</p>
+
+        <h3>7.1. モジュールの使用</h3>
+        <p>モジュールは、特定の機能を持つJavaScriptファイルです。モジュールを使用することで、異なるファイル間で関数や変数を共有できます。次の例では、`math.js`というファイルから`add`関数をエクスポートし、`main.js`というファイルでインポートして使用しています。</p>
+
+        <pre><code>
+    // math.js
+    export function add(a, b) {
+        return a + b;
+    }
+
+    // main.js
+    import { add } from './math.js';
+
+    console.log(add(2, 3));  // 出力: 5
+        </code></pre>
+
+        <p>このコードのポイント：</p>
+        <ul>
+            <li><strong>export</strong>: `math.js`で`add`関数をエクスポートすることで、他のファイルからこの関数を使えるようになります。</li>
+            <li><strong>import</strong>: `main.js`で`add`関数をインポートし、関数を使用して計算結果を表示しています。</li>
+        </ul>
+
+        <h3>7.2. npmによるパッケージ管理</h3>
+        <p>npmはNode.jsのパッケージ管理ツールで、外部パッケージやライブラリを簡単に管理できます。以下に、npmの基本的な使い方を示します：</p>
+        
+        <ul>
+            <li><strong>パッケージのインストール</strong>: <code>npm install &lt;パッケージ名&gt;</code>を使って、必要なライブラリをプロジェクトに追加します。</li>
+            <li><strong>バージョンの更新</strong>: <code>npm update &lt;パッケージ名&gt;</code>で、インストールされているパッケージを最新のバージョンに更新します。</li>
+            <li><strong>プロジェクトのセットアップ</strong>: <code>npm init</code>を実行すると、プロジェクトの設定情報を含む`package.json`ファイルが生成されます。</li>
+        </ul>
+
+        <button class="next-button" onclick="showNextSection(7)">次へ</button>
+    </div>
+
+    <div id="section8" class="section" style="display: none;">
+        <h2>8. フロントエンドフレームワーク（Reactの例）</h2>
+        <p>Reactは、ユーザーインターフェースを構築するための人気のあるJavaScriptライブラリです。コンポーネントベースのアプローチを採用しており、大規模なアプリケーションのUIを効率的に管理できます。</p>
+
+        <h3>8.1. Reactの基本</h3>
+        <p>Reactの基本的な使用法を以下に示します。まず、ReactとReactDOMをインポートし、Appコンポーネントを作成します。そして、このコンポーネントをHTMLの特定の要素にレンダリングします。</p>
+
+        <pre><code>
+    import React from 'react';
+    import ReactDOM from 'react-dom';
+
+    function App() {
+        return &lt;h1&gt;こんにちは、React！&lt;/h1&gt;;
+    }
+
+    ReactDOM.render(&lt;App /&gt;, document.getElementById('root'));
+        </code></pre>
+
+        <p>このコードのポイント：</p>
+        <ul>
+            <li><strong>import React</strong>: Reactをインポートすることで、JSX（JavaScript XML）を使ったコンポーネントを作成できるようになります。</li>
+            <li><strong>関数コンポーネント</strong>: `App`という関数がコンポーネントを定義しています。この関数は、React要素（ここでは`＜h1＞`タグ）を返します。</li>
+            <li><strong>ReactDOM.render</strong>: この関数を使って、作成したコンポーネントをDOMの特定の場所（この例では`id`が`root`の要素）に描画します。</li>
+        </ul>
+
+        <h3>8.2. コンポーネントの状態管理</h3>
+        <p>Reactでは、状態を管理することが重要です。`useState`フックを使うことで、コンポーネント内で状態を持つことができます。以下はカウントアップ機能を持つコンポーネントの例です：</p>
+
+        <pre><code>
+    import React, { useState } from 'react';
+
+    function Counter() {
+        const [count, setCount] = useState(0); // 状態変数countとその更新関数setCountを定義
+
+        return (
+            &lt;div&gt;
+                &lt;p&gt;クリックした回数: {count}&lt;/p&gt;
+                &lt;button onClick={() => setCount(count + 1)}&gt;カウントアップ&lt;/button&gt;
+            &lt;/div&gt;
+        );
+    }
+
+    ReactDOM.render(&lt;Counter /&gt;, document.getElementById('root'));
+        </code></pre>
+
+        <p>このコードのポイント：</p>
+        <ul>
+            <li><strong>useState</strong>: このフックを使って、`count`という状態変数を作成します。初期値は`0`です。</li>
+            <li><strong>setCount</strong>: `count`の値を更新するための関数です。この関数をクリックイベントで使用しています。</li>
+            <li><strong>状態の自動再評価</strong>: コンポーネントの状態が変化すると、Reactは自動的にコンポーネントを再描画して最新の状態を反映します。</li>
+        </ul>
+
+        <p>これにより、Reactを使ってインタラクティブなフロントエンドアプリケーションを作成することができるようになります。状態管理やコンポーネント化により、大規模なアプリケーションでもコードの可読性と保守性が向上します。</p>
+        <p>本コンテンツの作成時間（HTML/CSS/JavaScriptの設計・実装を含む）：約15時間</p>
+    </div>
+    <script>
+        let currentSection = 1; // 現在のセクション番号を追跡
+        
+        function showSection(sectionNumber) {
+            // 全てのセクションを非表示にする
+            for (let i = 1; i <= 8; i++) {
+                const section = document.getElementById(`section${i}`);
+                if (section) {
+                    section.style.display = 'none';
+                }
+            }
+            
+            // 指定されたセクションを表示
+            const targetSection = document.getElementById(`section${sectionNumber}`);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+                currentSection = sectionNumber;
+                
+                // ナビゲーションボタンの状態を更新
+                updateNavButtons();
+                
+                // セクションの先頭にスクロール
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+        
+        function updateNavButtons() {
+            // 全てのナビゲーションボタンの状態をリセット
+            for (let i = 1; i <= 8; i++) {
+                const btn = document.getElementById(`nav-${i}`);
+                if (btn) {
+                    btn.classList.remove('active', 'disabled');
+                    
+                    // 現在のセクションをアクティブに
+                    if (i === currentSection) {
+                        btn.classList.add('active');
+                    }
+                    // まだ到達していないセクションを無効化（オプション）
+                    // if (i > currentSection) {
+                    //     btn.classList.add('disabled');
+                    //     btn.onclick = null;
+                    // } else {
+                    //     btn.onclick = () => showSection(i);
+                    // }
+                }
+            }
+        }
+        
+        function showNextSection(current) {
+            const nextSection = current + 1;
+            if (nextSection <= 9) {
+                showSection(nextSection);
+            }
+        }
+        
+        // ページ読み込み時に初期状態を設定
+        window.addEventListener('DOMContentLoaded', function() {
+            updateNavButtons();
+        });
+        </script>
+</body>
+</html>
